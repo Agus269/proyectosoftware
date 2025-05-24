@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambino - Restaurante Italiano</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Bambino</h1>
+        <nav>
+            <button onclick="mostrarSeccion('menu')">Menú de Comida</button>
+            <button onclick="mostrarSeccion('nosotros')">Acerca de Nosotros</button>
+            <button onclick="mostrarSeccion('consultas')">Consultas</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="seccion">
+            <h2>¡Bienvenido a Bambino!</h2>
+            <p>Disfrutá de la auténtica cocina italiana en el corazón de Córdoba.</p>
+        </section>
+
+        <section id="menu" class="seccion oculto">
+            <h2>Platos Principales</h2>
+            <div id="platos" class="items"></div>
+            <h2>Bebidas</h2>
+            <div id="bebidas" class="items"></div>
+            <button class="ver-pedido" onclick="verPedido()">Ver Pedido</button>
+        </section>
+
+       <section id="nosotros" class="seccion oculto">
+    <h2>Acerca de Nosotros</h2>
+    <img src="https://example.com/restaurant.jpg" alt="Restaurante Bambino" style="width:100%; max-width:800px; border-radius:12px; margin-bottom:1rem;">
+    <p>Bambino fue fundado en 2015 en el corazón de Córdoba por dos apasionados chefs que soñaban con traer la verdadera cocina italiana a Sudamérica. Desde entonces, nuestro restaurante ha sido sinónimo de tradición, calidad y excelencia culinaria. Cada plato refleja el espíritu de Italia, con ingredientes frescos y recetas heredadas de generación en generación.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-top:2rem;">
+        <div style="flex:1; min-width:250px;">
+            <img src="https://example.com/agustin.jpg" alt="Chef Agustín Rodríguez Richard" style="width:100%; border-radius:10px;">
+            <h3>Chef Agustín Rodríguez Richard</h3>
+            <p>Agustín nació en Nápoles y se formó en las mejores cocinas de Italia. Con dos estrellas Michelín, es un maestro de la pasta fresca y un amante de los ingredientes de estación. Su filosofía es simple: cocinar con el corazón.</p>
+        </div>
+        <div style="flex:1; min-width:250px;">
+            <img src="https://example.com/franco.jpg" alt="Chef Franco Torres" style="width:100%; border-radius:10px;">
+            <h3>Chef Franco Torres</h3>
+            <p>Franco, oriundo de Florencia, es experto en salsas y maridaje. Su experiencia internacional lo llevó a obtener también dos estrellas Michelín. En Bambino, aporta creatividad y elegancia a cada plato.</p>
+        </div>
+    </div>
+</section>
+
+        <section id="consultas" class="seccion oculto">
+            <h2>Consultas</h2>
+            <p>Para más información, escribinos a contacto@bambino.com o llamanos al 0800-123-BAMBINO.</p>
+        </section>
+
+        <section id="pedido" class="seccion oculto">
+            <h2>Tu Pedido</h2>
+            <ul id="lista-pedido"></ul>
+            <p id="total"></p>
+            <button class="confirmar" onclick="confirmarPedido()">Confirmar Pedido</button>
+        </section>
+
+        <section id="admin" class="seccion oculto">
+            <h2>Panel de Administración</h2>
+            <div id="admin-data"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bambino. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
