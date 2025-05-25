@@ -94,6 +94,9 @@ footer {
     max-width: 100%;
     border-radius: 8px;
     margin-bottom: 0.5rem;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
 }
 
 button.ver-pedido, button.confirmar {
@@ -134,3 +137,36 @@ button.ver-pedido:hover, button.confirmar:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
+<<<<<<< HEAD
+=======
+.titulo{ 
+    text-align: center;
+    background-color: #20100d;
+    font-size: 60px;
+    color: #41cc25;
+    margin-top: 10px;
+    text-shadow: 2px 2px 3px #9e2e1a;
+}
+
+.lista{
+    text-align: center;
+    background-color: #20100d;
+    font-size: 30px;
+    color: #1a8d55;
+    margin-top: 10px;
+    text-shadow: 1px 1px 1px #9e2e1a;
+}
+
+.botonborrar{
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #9e2e1a;
+    text-shadow: 1px 1px 1px 1a8d55;
+}
+
+.bodypedidos{
+    background-color: #20100d;
+
+}
+>>>>>>> fc726d9da74a22582a62b93a967ab22d79ae1918
