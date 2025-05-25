@@ -18,7 +18,6 @@ const bebidas = [
 let pedido = [];
 let historial = [];
 
-// Funciones
 function mostrarSeccion(id) {
     document.querySelectorAll('.seccion').forEach(s => s.classList.add('oculto'));
     document.getElementById(id).classList.remove('oculto');
@@ -103,7 +102,6 @@ function confirmarPedido() {
     pedido = [];
     mostrarSeccion('inicio');
 
-    // Botón admin discreto
     setTimeout(() => {
         const pie = document.querySelector('footer');
         if (pie && !document.getElementById('btnAdmin')) {
@@ -137,13 +135,13 @@ function mostrarHistorialendoc() {
 
     historialGuardado.forEach((registro, index) => {
         const div = document.createElement("div");
-        div.innerHTML = `<h3>Pedido ${index + 1} - ${registro.fecha}</h3><ul></ul>`;
+        div.innerHTML = `<h3>Pedido ${index + 1} - ${registro.fecha}</h3><p></p>`;
 
         let total = 0;
         registro.pedido.forEach(item => {
             const li = document.createElement("li");
             li.textContent = `${item.nombre} - $${item.precio}`;
-            div.querySelector("ul").appendChild(li);
+            div.querySelector("p").appendChild(li);
             total += item.precio;
         });
 
