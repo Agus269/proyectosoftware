@@ -1,8 +1,9 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #fff;
-    color: #333;
+    background: url('https://img.freepik.com/fotos-premium/fondo-comida-italiana-oscuridad_1220-4139.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
 }
 
 header {
@@ -10,6 +11,8 @@ header {
     padding: 1rem;
     text-align: center;
     color: #fff;
+    border-radius: 12px;
+    margin: 1rem;
 }
 
 header h1 {
@@ -35,11 +38,31 @@ nav button:hover {
     background-color: #f0f0f0;
 }
 
+main {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 1rem;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 1rem;
+    border-radius: 12px;
+}
+
 .seccion {
     padding: 2rem;
     max-width: 900px;
     margin: auto;
     animation: fadeIn 0.5s ease-in;
+    color: #fff;
 }
 
 .oculto {
@@ -53,16 +76,17 @@ nav button:hover {
     margin-bottom: 2rem;
 }
 
-.items div {
-    border: 1px solid #ddd;
+.item-box {
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
     transition: transform 0.2s ease;
+    color: #fff;
 }
 
-.items div:hover {
+.item-box:hover {
     transform: scale(1.02);
 }
 
@@ -88,16 +112,25 @@ button.ver-pedido:hover, button.confirmar:hover {
     background-color: #006400;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #f5f5f5;
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 3rem;
+.tick {
+    display: inline-block;
+    color: #0f0;
+    font-weight: bold;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tick.fade-in {
+    opacity: 1;
+}
+
+.tick.oculto {
+    opacity: 0;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+

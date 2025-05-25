@@ -14,6 +14,7 @@
             <button onclick="mostrarSeccion('menu')">Menú de Comida</button>
             <button onclick="mostrarSeccion('nosotros')">Acerca de Nosotros</button>
             <button onclick="mostrarSeccion('consultas')">Consultas</button>
+            <button onclick="mostrarSeccion('ubicacion')">Ubicación</button>
         </nav>
     </header>
 
@@ -31,39 +32,52 @@
             <button class="ver-pedido" onclick="verPedido()">Ver Pedido</button>
         </section>
 
-       <section id="nosotros" class="seccion oculto">
-    <h2>Acerca de Nosotros</h2>
-    <img src="https://example.com/restaurant.jpg" alt="Restaurante Bambino" style="width:100%; max-width:800px; border-radius:12px; margin-bottom:1rem;">
-    <p>Bambino fue fundado en 2015 en el corazón de Córdoba por dos apasionados chefs que soñaban con traer la verdadera cocina italiana a Sudamérica. Desde entonces, nuestro restaurante ha sido sinónimo de tradición, calidad y excelencia culinaria. Cada plato refleja el espíritu de Italia, con ingredientes frescos y recetas heredadas de generación en generación.</p>
-    <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-top:2rem;">
-        <div style="flex:1; min-width:250px;">
-            <img src="https://example.com/agustin.jpg" alt="Chef Agustín Rodríguez Richard" style="width:100%; border-radius:10px;">
-            <h3>Chef Agustín Rodríguez Richard</h3>
-            <p>Agustín nació en Nápoles y se formó en las mejores cocinas de Italia. Con dos estrellas Michelín, es un maestro de la pasta fresca y un amante de los ingredientes de estación. Su filosofía es simple: cocinar con el corazón.</p>
-        </div>
-        <div style="flex:1; min-width:250px;">
-            <img src="https://example.com/franco.jpg" alt="Chef Franco Torres" style="width:100%; border-radius:10px;">
-            <h3>Chef Franco Torres</h3>
-            <p>Franco, oriundo de Florencia, es experto en salsas y maridaje. Su experiencia internacional lo llevó a obtener también dos estrellas Michelín. En Bambino, aporta creatividad y elegancia a cada plato.</p>
-        </div>
-    </div>
-</section>
+        <section id="nosotros" class="seccion oculto">
+            <h2>Acerca de Nosotros</h2>
+            <img src="https://example.com/restaurant.jpg" alt="Restaurante Bambino" style="width:100%; max-width:800px; border-radius:12px; margin-bottom:1rem;">
+            <p>Bambino fue fundado en 2015 en el corazón de Córdoba por dos apasionados chefs que soñaban con traer la verdadera cocina italiana a Sudamérica. Desde entonces, nuestro restaurante ha sido sinónimo de tradición, calidad y excelencia culinaria. Cada plato refleja el espíritu de Italia, con ingredientes frescos y recetas heredadas de generación en generación.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-top:2rem;">
+                <div style="flex:1; min-width:250px;">
+                    <img src="https://example.com/agustin.jpg" alt="Chef Agustín Rodríguez Richard" style="width:100%; border-radius:10px;">
+                    <h3>Chef Agustín Rodríguez Richard</h3>
+                    <p>Agustín nació en Nápoles y se formó en las mejores cocinas de Italia. Con dos estrellas Michelín, es un maestro de la pasta fresca y un amante de los ingredientes de estación. Su filosofía es simple: cocinar con el corazón.</p>
+                </div>
+                <div style="flex:1; min-width:250px;">
+                    <img src="https://example.com/franco.jpg" alt="Chef Franco Torres" style="width:100%; border-radius:10px;">
+                    <h3>Chef Franco Torres</h3>
+                    <p>Franco, oriundo de Florencia, es experto en salsas y maridaje. Su experiencia internacional lo llevó a obtener también dos estrellas Michelín. En Bambino, aporta creatividad y elegancia a cada plato.</p>
+                </div>
+            </div>
+        </section>
 
         <section id="consultas" class="seccion oculto">
             <h2>Consultas</h2>
             <p>Para más información, escribinos a contacto@bambino.com o llamanos al 0800-123-BAMBINO.</p>
         </section>
 
+        <section id="ubicacion" class="seccion oculto">
+            <h2>Ubicación</h2>
+            <p>Encontranos en Av. Italia 1234, Córdoba Capital:</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.7517808182116!2d-64.18877668484906!3d-31.420083481401763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a282c57c52b5%3A0x5f1f0b4e28b00732!2sAv.%20Italia%201234%2C%20X5000%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1716589373046!5m2!1ses!2sar" width="100%" height="400" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
         <section id="pedido" class="seccion oculto">
             <h2>Tu Pedido</h2>
             <ul id="lista-pedido"></ul>
             <p id="total"></p>
-            <button class="confirmar" onclick="confirmarPedido()">Confirmar Pedido</button>
+            <button class="confirmar" onclick="mostrarOpcionesPago()">Confirmar Pedido</button>
         </section>
 
         <section id="admin" class="seccion oculto">
             <h2>Panel de Administración</h2>
             <div id="admin-data"></div>
+        </section>
+
+        <section id="pago" class="seccion oculto">
+            <h2>Elegí tu método de pago</h2>
+            <button onclick="finalizarPedido('Efectivo')">Efectivo</button>
+            <button onclick="finalizarPedido('Tarjeta')">Tarjeta</button>
+            <button onclick="finalizarPedido('MercadoPago')">MercadoPago</button>
         </section>
     </main>
 

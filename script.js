@@ -119,7 +119,8 @@ setTimeout(() => {
 }, 500);
 }
 
-function mostrarHistorial() {
+
+    function mostrarHistorial() {
     const contenedor = document.getElementById('admin-data');
     contenedor.innerHTML = "<h3>Historial de Pedidos</h3>";
     historial.forEach((registro, i) => {
@@ -132,8 +133,60 @@ function mostrarHistorial() {
             <p>Total Ingresos: $${registro.total}</p>
             <p>Total Costos: $${registro.costoTotal}</p>
             <p>Ganancia: $${registro.ganancias}</p>
+            <p>Método de Pago: ${registro.metodo || 'No especificado'}</p>
             <hr>
         `;
         contenedor.appendChild(div);
     });
 }
+function mostrarOpcionesPago() {
+    mostrarSeccion('pago');
+}
+
+function finalizarPedido(metodo) {
+    let total = 0;
+    let costoTotal = 0;
+    pedido.forEach(item => {
+        total += item.precio;
+        costoTotal += item.costo;
+    });
+    const ganancias = total - costoTotal;
+    historial.push({ pedido: [...pedido], total, costoTotal, ganancias, metodo });
+    alert("Muchas gracias por su pedido! En breve se lo acercaremos a su mesa. Gracias por elegir Bambino!");
+    pedido = [];
+    mostrarSeccion('inicio');
+}
+function cargarItems(contenedorId, items) {
+    const contenedor = document.getElementById(contenedorId);
+    contenedor.innerHTML = "";
+    items.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.classList.add('item-box');
+        div.innerHTML = `
+            <img src="${item.imagen}" alt="${item.nombre}">
+            <h3>${item.nombre}</h3>
+            <p>${item.descripcion}</p>
+            <p><strong>$${item.precio}</strong></p>
+            <label>Cantidad:
+                <input type="number" id="cant-${contenedorId}-${index}" min="1" value="1" style="width: 60px; margin-left: 5px;">
+            </label>
+            <button onclick="añadirAlPedido('${contenedorId}', ${index}, this)">Añadir al pedido</button>
+            <span class="tick oculto">✔ Añadido</span>
+        `;
+        contenedor.appendChild(div);
+    });
+}
+
+function añadirAlPedido(tipo, index, boton) {
+    const input = document.getElementById(`cant-${tipo}-${index}`);
+    const cantidad = parseInt(input.value);
+    const item = tipo === 'platos' ? platos[index] : bebidas[index];
+    for (let i = 0; i < cantidad; i++) {
+        pedido.push(item);
+    }
+    const tick = boton.parentElement.querySelector('.tick');
+    tick.classList.remove('oculto');
+    tick.classList.add('fade-in');
+    setTimeout(() => tick.classList.add('oculto'), 1000);
+}
+
