@@ -36,29 +36,6 @@ function mostrarSeccion(id) {
     }
 }
 
-function cargarItems(contenedorId, items) {
-    const contenedor = document.getElementById(contenedorId);
-    contenedor.innerHTML = "";
-
-    items.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.innerHTML = `
-            <img src="${item.imagen}" alt="${item.nombre}">
-            <h3>${item.nombre}</h3>
-            <p>${item.descripcion}</p>
-            <p><strong>$${item.precio}</strong></p>
-            <button onclick="añadirAlPedido('${contenedorId}', ${index})">Añadir al pedido</button>
-        `;
-        contenedor.appendChild(div);
-    });
-}
-
-function añadirAlPedido(tipo, index) {
-    const item = tipo === 'platos' ? platos[index] : bebidas[index];
-    pedido.push(item);
-    alert(`${item.nombre} añadido al pedido.`);
-}
-
 function verPedido() {
     mostrarSeccion('pedido');
 
@@ -97,8 +74,6 @@ function confirmarPedido() {
     historial.push(nuevoRegistro);
 
     alert("Muchas gracias por su pedido! En breve se lo acercaremos a su mesa. Gracias por elegir Bambino!");
-
-    guardarPedidoEnLocalStorage(nuevoRegistro);
     pedido = [];
     mostrarSeccion('inicio');
 
@@ -125,29 +100,33 @@ function guardarPedidoEnLocalStorage(registro) {
     localStorage.setItem("historialPedidos", JSON.stringify(historialGuardado));
 }
 
-function mostrarHistorialendoc() {
-   const historialGuardado = JSON.parse(localStorage.getItem("historialPedidos")) || [];
+function mostrarHistorialDesdeStorage() {
+    const historialGuardado = JSON.parse(localStorage.getItem("historialPedidos")) || [];
     const contenedor = document.getElementById("lista-pedido");
 
     if (!contenedor) return;
 
-    contenedor.innerHTML = historialGuardado.length === 0 ? "<p>No hay pedidos aún.</p>" : "";
+    contenedor.innerHTML = historialGuardado.length === 0
+        ? "<p>No hay pedidos aún.</p>"
+        : "";
 
     historialGuardado.forEach((registro, index) => {
         const div = document.createElement("div");
-        div.innerHTML = `<h3>Pedido ${index + 1} - ${registro.fecha}</h3><p></p>`;
+        div.classList.add("registro");
 
-        let total = 0;
+        div.innerHTML = `<h3>Pedido ${index + 1} - ${registro.fecha}</h3>`;
+
         registro.pedido.forEach(item => {
-            const li = document.createElement("li");
-            li.textContent = `${item.nombre} - $${item.precio}`;
-            div.querySelector("p").appendChild(li);
-            total += item.precio;
+            const p = document.createElement("p");
+            p.textContent = `${item.nombre} - $${item.precio}`;
+            div.appendChild(p);
         });
 
         const totalP = document.createElement("p");
-        totalP.innerHTML = `<strong>Total: $${total}</strong>`;
+        totalP.innerHTML = `<strong>Total: $${registro.total}</strong><br>
+                            <strong>Ganancia: $${registro.ganancias}</strong>`;
         div.appendChild(totalP);
+
         contenedor.appendChild(div);
     });
 }
@@ -155,7 +134,7 @@ function mostrarHistorialendoc() {
 function borrarHistorial() {
     if (confirm("¿Estás seguro de que querés borrar el historial de pedidos? Esta acción no se puede deshacer.")) {
         localStorage.removeItem("historialPedidos");
-        mostrarHistorialendoc(); // Vuelve a mostrar el historial vacío
+        mostrarHistorialDesdeStorage(); 
         alert("Historial borrado correctamente.");
     }
 }
@@ -194,11 +173,22 @@ function finalizarPedido(metodo) {
         costoTotal += item.costo;
     });
     const ganancias = total - costoTotal;
-    historial.push({ pedido: [...pedido], total, costoTotal, ganancias, metodo });
+
+    const nuevoRegistro = {
+        pedido: [...pedido],
+        total,
+        costoTotal,
+        ganancias,
+        metodo
+    };
+
+    historial.push(nuevoRegistro);
+    guardarPedidoEnLocalStorage(nuevoRegistro);
     alert("Muchas gracias por su pedido! En breve se lo acercaremos a su mesa. Gracias por elegir Bambino!");
     pedido = [];
     mostrarSeccion('inicio');
 }
+
 function cargarItems(contenedorId, items) {
     const contenedor = document.getElementById(contenedorId);
     contenedor.innerHTML = "";

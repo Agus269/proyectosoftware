@@ -137,11 +137,9 @@ button.ver-pedido:hover, button.confirmar:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-<<<<<<< HEAD
-=======
 .titulo{ 
     text-align: center;
-    background-color: #20100d;
+    
     font-size: 60px;
     color: #41cc25;
     margin-top: 10px;
@@ -150,7 +148,7 @@ button.ver-pedido:hover, button.confirmar:hover {
 
 .lista{
     text-align: center;
-    background-color: #20100d;
+    
     font-size: 30px;
     color: #1a8d55;
     margin-top: 10px;
@@ -164,9 +162,3 @@ button.ver-pedido:hover, button.confirmar:hover {
     color: #9e2e1a;
     text-shadow: 1px 1px 1px 1a8d55;
 }
-
-.bodypedidos{
-    background-color: #20100d;
-
-}
->>>>>>> fc726d9da74a22582a62b93a967ab22d79ae1918
