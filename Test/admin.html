@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Bambino</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Acceso Administrativo</h1>
+    <a href="index.html"><button>Volver</button></a>
+  </header>
+
+  <main>
+    <section id="form-admin">
+      <p>Solo el personal autorizado puede acceder al panel de ganancias y pedidos.</p>
+      <input type="password" id="clave" placeholder="Contraseña de acceso">
+      <button onclick="validarAdmin()">Ingresar</button>
+    </section>
+
+    <section id="admin-data" class="oculto">
+      <h2>Historial de Pedidos</h2>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Bambino 2025</p>
+  </footer>
+</body>
+</html>
