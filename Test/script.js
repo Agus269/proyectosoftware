@@ -1,12 +1,17 @@
 const platos = [
-  { nombre: "Lasagna", precio: 8500, costo: 4000 },
-  { nombre: "Pizza", precio: 12500, costo: 6000 }
+  { nombre: "Lasagna", precio: 10000, costo: 6000, imagen: "/imagenes/lasagna.png" },
+  { nombre: "Pizza", precio: 12500, costo: 6000, imagen: "/imagenes/pizza.jpg" },
+  { nombre: "Fettuccine", precio: 9000, costo: 4000, imagen: "/imagenes/fettuccine.jpg" },
+  { nombre: "Risotto", precio: 8000, costo: 3800, imagen: "/imagenes/risotto.jpg" },
+  { nombre: "Ñoquis", precio: 8500, costo: 4200, imagen: "/imagenes/ñoquis.jpg" }
 ];
 
 const bebidas = [
-  { nombre: "Gaseosa", precio: 1500, costo: 800 },
-  { nombre: "Vino", precio: 11400, costo: 5000 },
-  { nombre: "Agua", precio: 1000, costo: 500},
+  { nombre: "Gaseosa", precio: 3500, costo: 1500, imagen: "/imagenes/lineacoca.jpg", opciones: ["Coca Cola", "Sprite", "Fanta"] },
+  { nombre: "Vino", precio: 11400, costo: 5000, imagen: "/imagenes/vino.jpg", opciones: ["Tinto", "Blanco", "Rosado"] },
+  { nombre: "Agua", precio: 2000, costo: 950, imagen: "/imagenes/aguasingas.jpg", opciones:  ["Agua sin gas", "Agua con gas"]},
+  { nombre: "Cerveza", precio: 4500, costo: 2250, imagen: "/imagenes/cerveza.jpg" },
+  { nombre: "Agua Saborizada", precio: 3000, costo: 1500, imagen: "/imagenes/aquarius.jpg", opciones: ["Manzana", "Pomelo", "Pera", "Uva", "Naranja", "Pomelo rosado"] }
   
 
 ];
@@ -23,21 +28,24 @@ window.onload = () => {
 function cargarItems(idContenedor, lista) {
   const cont = document.getElementById(idContenedor);
   cont.innerHTML = "";
+
   lista.forEach((item, i) => {
     let extra = "";
-    if (item.nombre === "Gaseosa") {
-      extra = `
-        <select id="gaseosa-sabor-${i}">
-          <option value="Coca Cola">Coca Cola</option>
-          <option value="Sprite">Sprite</option>
-          <option value="Fanta">Fanta</option>
-        </select>
-      `;
+
+    if (item.opciones && Array.isArray(item.opciones)) {
+      extra = `<select id="${idContenedor}-opcion-${i}">`;
+      item.opciones.forEach(opcion => {
+        extra += `<option value="${opcion}">${opcion}</option>`;
+      });
+      extra += `</select>`;
     }
+
     cont.innerHTML += `
       <div>
         <h3>${item.nombre}</h3>
         <p>Precio: $${item.precio}</p>
+        ${item.imagen ? `<img src="${item.imagen}" alt="${item.nombre}" style="width:100px;" />` : ""}
+        <br>
         ${extra}
         <input type="number" id="${idContenedor}-cant-${i}" min="1" value="1" />
         <button onclick="añadir('${idContenedor}', ${i})">Añadir</button>
