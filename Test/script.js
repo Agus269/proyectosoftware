@@ -1,11 +1,14 @@
 const platos = [
-  { nombre: "Lasagna", precio: 2500, costo: 1300 },
-  { nombre: "Pizza", precio: 2200, costo: 1000 }
+  { nombre: "Lasagna", precio: 8500, costo: 4000 },
+  { nombre: "Pizza", precio: 12500, costo: 6000 }
 ];
 
 const bebidas = [
-  { nombre: "Gaseosa", precio: 800, costo: 400 },
-  { nombre: "Vino", precio: 1800, costo: 900 }
+  { nombre: "Gaseosa", precio: 1500, costo: 800 },
+  { nombre: "Vino", precio: 11400, costo: 5000 },
+  { nombre: "Agua", precio: 1000, costo: 500},
+  
+
 ];
 
 let pedido = [];
