@@ -149,3 +149,49 @@ button:hover {
   top: 10px;
   left: 10px;
 }
+/* Imagen del logo en encabezado */
+.logo-pequeno {
+  width: 60px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* Sección de historia del restaurante */
+.historia-restaurante {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 2rem;
+  gap: 2rem;
+}
+
+.imagen-restaurant {
+  flex: 1;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.descripcion-restaurante {
+  flex: 2;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.titulo-italiano {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px #000;
+}
+.parrafo-sombreado {
+  background-color: rgba(139, 0, 0, 0.85); /* rojo oscuro con transparencia */
+  padding: 1rem;
+  border-radius: 12px;
+  color: #fff;
+  margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
