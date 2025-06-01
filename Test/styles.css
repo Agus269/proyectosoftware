@@ -32,12 +32,25 @@ nav button {
   border-radius: 5px;
 }
 
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 1rem;
+}
+
 .items div {
-  background: white;
-  color: black;
-  margin: 10px 0;
+  background-color: #f5f5dc; /* Beige */
+  color: #333;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.items div:hover {
+  transform: scale(1.02);
 }
 
 footer {
@@ -59,6 +72,7 @@ footer {
   flex-wrap: wrap;
   gap: 2rem;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .chefs div {
@@ -83,6 +97,7 @@ footer {
 .tick.fade-in {
   opacity: 1;
 }
+
 select {
   margin-bottom: 0.5rem;
   padding: 0.4rem;
@@ -90,3 +105,19 @@ select {
   border: none;
   font-weight: bold;
 }
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #8b0000;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a80000;
+}
+
