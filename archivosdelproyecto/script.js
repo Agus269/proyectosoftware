@@ -60,9 +60,9 @@ function añadir(tipo, index) {
 
   for (let i = 0; i < cantidad; i++) {
     let item = { ...lista[index] };
-    if (item.nombre === "Gaseosa") {
-      const sabor = document.getElementById(`gaseosa-sabor-${index}`).value;
-      item.nombre = sabor;
+    if (item.opciones && Array.isArray(item.opciones)) {
+      const opcionSeleccionada = document.getElementById(`${tipo}-opcion-${index}`).value;
+      item.nombre += ` (${opcionSeleccionada})`;
     }
     pedido.push(item);
   }
