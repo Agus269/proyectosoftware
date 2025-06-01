@@ -44,7 +44,7 @@ function cargarItems(idContenedor, lista) {
       <div>
         <h3>${item.nombre}</h3>
         <p>Precio: $${item.precio}</p>
-        ${item.imagen ? `<img src="${item.imagen}" alt="${item.nombre}" style="width:100px;" />` : ""}
+        ${item.imagen ? `<img src="${item.imagen}" alt="${item.nombre}" class="imagenmenu" />` : ""}
         <br>
         ${extra}
         <input type="number" id="${idContenedor}-cant-${i}" min="1" value="1" />
@@ -125,7 +125,7 @@ function borrarPedido() {
   }
 }
 
-// ADMINISTRACIÓN
+
 function validarAdmin() {
   const clave = document.getElementById("clave").value;
   const adminData = document.getElementById("admin-data");
@@ -146,6 +146,7 @@ function mostrarHistorial() {
 
   historial = JSON.parse(localStorage.getItem("historial")) || [];
   let totalIngresos = 0, totalCostos = 0, totalGanancia = 0;
+
 
   historial.forEach((h, i) => {
     totalIngresos += h.total;
