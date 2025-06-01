@@ -42,11 +42,13 @@ h1, h2, h3 {
 }
 
 header {
+  position: relative;
   background: rgba(139, 0, 0, 0.9);
   color: white;
   text-align: center;
   padding: 1rem;
 }
+
 
 nav, nav a {
   display: inline-block;
@@ -132,3 +134,18 @@ button:hover {
   background-color: #a80000;
 }
 
+/* LOGO GRANDE CENTRADO EN MENÚ */
+.logo-grande {
+  display: block;
+  margin: 2rem auto;
+  width: 200px;
+  max-width: 80%;
+}
+
+/* LOGO PEQUEÑO EN HEADER GENERAL */
+.logo-pequeno {
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
