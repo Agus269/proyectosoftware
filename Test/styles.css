@@ -1,7 +1,10 @@
+/* Tipografía italiana */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap');
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-image: url('https://img.freepik.com/fotos-premium/fondo-comida-italiana-oscuridad_1220-4139.jpg');
+  background-image: url("/imagenes/fondoitaliano.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -9,8 +12,37 @@ body {
   color: #fff;
 }
 
+/* Títulos con fuente tipo italiana */
+h1, h2, h3 {
+  font-family: 'Great Vibes', cursive;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
+}
+
+/* Contenedor de los platos: transparente */
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 1rem;
+}
+
+.items div {
+  background-color: rgba(245, 245, 220, 0.85); /* Beige con transparencia */
+  color: #333;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.items div:hover {
+  transform: scale(1.02);
+}
+
 header {
-  background: #8b0000;
+  background: rgba(139, 0, 0, 0.9);
   color: white;
   text-align: center;
   padding: 1rem;
@@ -32,30 +64,9 @@ nav button {
   border-radius: 5px;
 }
 
-.items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin: 2rem 1rem;
-}
-
-.items div {
-  background-color: #f5f5dc; /* Beige */
-  color: #333;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  transition: transform 0.2s ease-in-out;
-}
-
-.items div:hover {
-  transform: scale(1.02);
-}
-
 footer {
   text-align: center;
-  background: #8b0000;
+  background: rgba(139, 0, 0, 0.9);
   color: white;
   padding: 0.5rem;
 }
