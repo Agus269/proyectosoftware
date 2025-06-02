@@ -15,14 +15,20 @@
     <a href="index.html"><button>Volver al inicio</button></a>
   </header>
 
-  <main>
-    <ul id="lista-pedido"></ul>
-    <p id="total"></p>
-    <label for="nombre-cliente">Tu nombre:</label>
-    <input type="text" id="nombre-cliente" placeholder="Ingresá tu nombre">
-    <button onclick="finalizarPedido()">Confirmar Pedido</button>
-    <button onclick="borrarPedido()">Borrar Pedido</button>
-  </main>
+<main>
+  <ul id="lista-pedido"></ul>
+  <p id="total"></p>
+  
+  <label for="nombre-cliente">Tu nombre:</label>
+  <input type="text" id="nombre-cliente" placeholder="Ingresá tu nombre">
+  
+  <label for="mesa-cliente">Número de mesa:</label>
+  <input type="number" id="mesa-cliente" placeholder="Ej: 3" min="1" max="99">
+
+  <button onclick="finalizarPedido()">Confirmar Pedido</button>
+  <button onclick="borrarPedido()">Borrar Pedido</button>
+</main>
+
 
   <footer>
     <p>© Bambino 2025</p>

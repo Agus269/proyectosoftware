@@ -101,6 +101,8 @@ function mostrarPedido() {
 
 function finalizarPedido() {
   const nombre = document.getElementById("nombre-cliente")?.value || "Cliente sin nombre";
+const mesa = document.getElementById("mesa-cliente")?.value || "Sin número";
+
   const pedidoActual = JSON.parse(localStorage.getItem("pedidoActual")) || [];
 
   let total = 0, costoTotal = 0;
@@ -109,7 +111,8 @@ function finalizarPedido() {
     costoTotal += p.costo;
   });
 
-  historial.push({ pedido: pedidoActual, total, costoTotal, ganancia: total - costoTotal, nombre });
+ historial.push({ pedido: pedidoActual, total, costoTotal, ganancia: total - costoTotal, nombre, mesa });
+
   localStorage.setItem("historial", JSON.stringify(historial));
   localStorage.removeItem("pedidoActual");
   pedido = [];
@@ -154,10 +157,10 @@ function mostrarHistorial() {
     totalGanancia += h.ganancia;
 
     adminData.innerHTML += `
-      <p><strong>Pedido ${i + 1}</strong><br>
-      Cliente: ${h.nombre}<br>
-      Ingreso: $${h.total} | Costos: $${h.costoTotal} | Ganancia: $${h.ganancia}</p>
-      <hr>
+   <p><strong>Pedido ${i + 1}</strong><br>
+Cliente: ${h.nombre} | Mesa: ${h.mesa}<br>
+Ingreso: $${h.total} | Costos: $${h.costoTotal} | Ganancia: $${h.ganancia}</p>
+
     `;
   });
 
