@@ -1,17 +1,17 @@
 const platos = [
-  { nombre: "Lasagna", precio: 10000, costo: 6000, imagen: "/imagenes/lasagna.png" },
-  { nombre: "Pizza", precio: 12500, costo: 6000, imagen: "/imagenes/pizza.jpg" },
-  { nombre: "Fettuccine", precio: 9000, costo: 4000, imagen: "/imagenes/fettuccine.jpg" },
-  { nombre: "Risotto", precio: 8000, costo: 3800, imagen: "/imagenes/risotto.jpg" },
-  { nombre: "Ñoquis", precio: 8500, costo: 4200, imagen: "/imagenes/ñoquis.jpg" }
+  { nombre: "Lasagna", precio: 10000, costo: 6000, imagen: "imagenes/lasagna.png" },
+  { nombre: "Pizza", precio: 12500, costo: 6000, imagen: "imagenes/pizza.jpg" },
+  { nombre: "Fettuccine", precio: 9000, costo: 4000, imagen: "imagenes/fettuccine.jpg" },
+  { nombre: "Risotto", precio: 8000, costo: 3800, imagen: "imagenes/risotto.jpg" },
+  { nombre: "Ñoquis", precio: 8500, costo: 4200, imagen: "imagenes/ñoquis.jpg" }
 ];
 
 const bebidas = [
-  { nombre: "Gaseosa", precio: 3500, costo: 1500, imagen: "/imagenes/lineacoca.jpg", opciones: ["Coca Cola", "Sprite", "Fanta"] },
-  { nombre: "Vino", precio: 11400, costo: 5000, imagen: "/imagenes/vino.jpg", opciones: ["Tinto", "Blanco", "Rosado"] },
-  { nombre: "Agua", precio: 2000, costo: 950, imagen: "/imagenes/aguasingas.jpg", opciones: ["Agua sin gas", "Agua con gas"] },
-  { nombre: "Cerveza", precio: 4500, costo: 2250, imagen: "/imagenes/cerveza.jpg" },
-  { nombre: "Agua Saborizada", precio: 3000, costo: 1500, imagen: "/imagenes/aquarius.jpg", opciones: ["Manzana", "Pomelo", "Pera", "Uva", "Naranja", "Pomelo rosado"] }
+  { nombre: "Gaseosa", precio: 3500, costo: 1500, imagen: "imagenes/lineacoca.jpg", opciones: ["Coca Cola", "Sprite", "Fanta"] },
+  { nombre: "Vino", precio: 11400, costo: 5000, imagen: "imagenes/vino.jpg", opciones: ["Tinto", "Blanco", "Rosado"] },
+  { nombre: "Agua", precio: 2000, costo: 950, imagen: "imagenes/aguasingas.jpg", opciones: ["Agua sin gas", "Agua con gas"] },
+  { nombre: "Cerveza", precio: 4500, costo: 2250, imagen: "imagenes/cerveza.jpg" },
+  { nombre: "Agua Saborizada", precio: 3000, costo: 1500, imagen: "imagenes/aquarius.jpg", opciones: ["Manzana", "Pomelo", "Pera", "Uva", "Naranja", "Pomelo rosado"] }
 ];
 
 let pedido = [];
