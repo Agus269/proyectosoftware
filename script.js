@@ -9,11 +9,9 @@ const platos = [
 const bebidas = [
   { nombre: "Gaseosa", precio: 3500, costo: 1500, imagen: "/imagenes/lineacoca.jpg", opciones: ["Coca Cola", "Sprite", "Fanta"] },
   { nombre: "Vino", precio: 11400, costo: 5000, imagen: "/imagenes/vino.jpg", opciones: ["Tinto", "Blanco", "Rosado"] },
-  { nombre: "Agua", precio: 2000, costo: 950, imagen: "/imagenes/aguasingas.jpg", opciones:  ["Agua sin gas", "Agua con gas"]},
+  { nombre: "Agua", precio: 2000, costo: 950, imagen: "/imagenes/aguasingas.jpg", opciones: ["Agua sin gas", "Agua con gas"] },
   { nombre: "Cerveza", precio: 4500, costo: 2250, imagen: "/imagenes/cerveza.jpg" },
   { nombre: "Agua Saborizada", precio: 3000, costo: 1500, imagen: "/imagenes/aquarius.jpg", opciones: ["Manzana", "Pomelo", "Pera", "Uva", "Naranja", "Pomelo rosado"] }
-  
-
 ];
 
 let pedido = [];
@@ -101,7 +99,7 @@ function mostrarPedido() {
 
 function finalizarPedido() {
   const nombre = document.getElementById("nombre-cliente")?.value || "Cliente sin nombre";
-const mesa = document.getElementById("mesa-cliente")?.value || "Sin número";
+  const mesa = document.getElementById("mesa-cliente")?.value || "Sin número";
 
   const pedidoActual = JSON.parse(localStorage.getItem("pedidoActual")) || [];
 
@@ -111,7 +109,14 @@ const mesa = document.getElementById("mesa-cliente")?.value || "Sin número";
     costoTotal += p.costo;
   });
 
- historial.push({ pedido: pedidoActual, total, costoTotal, ganancia: total - costoTotal, nombre, mesa });
+  historial.push({
+    pedido: pedidoActual,
+    total,
+    costoTotal,
+    ganancia: total - costoTotal,
+    nombre,
+    mesa
+  });
 
   localStorage.setItem("historial", JSON.stringify(historial));
   localStorage.removeItem("pedidoActual");
@@ -127,7 +132,6 @@ function borrarPedido() {
     location.reload();
   }
 }
-
 
 function validarAdmin() {
   const clave = document.getElementById("clave").value;
@@ -150,17 +154,24 @@ function mostrarHistorial() {
   historial = JSON.parse(localStorage.getItem("historial")) || [];
   let totalIngresos = 0, totalCostos = 0, totalGanancia = 0;
 
-
   historial.forEach((h, i) => {
     totalIngresos += h.total;
     totalCostos += h.costoTotal;
     totalGanancia += h.ganancia;
 
-    adminData.innerHTML += `
-   <p><strong>Pedido ${i + 1}</strong><br>
-Cliente: ${h.nombre} | Mesa: ${h.mesa}<br>
-Ingreso: $${h.total} | Costos: $${h.costoTotal} | Ganancia: $${h.ganancia}</p>
+    let listaItems = "<ul>";
+    h.pedido.forEach(item => {
+      listaItems += `<li>${item.nombre} - $${item.precio}</li>`;
+    });
+    listaItems += "</ul>";
 
+    adminData.innerHTML += `
+      <div class="historial-box">
+        <p><strong>Pedido ${i + 1}</strong><br>
+        Cliente: ${h.nombre} | Mesa: ${h.mesa}<br>
+        Ingreso: $${h.total} | Costos: $${h.costoTotal} | Ganancia: $${h.ganancia}</p>
+        <p><strong>Productos:</strong>${listaItems}</p>
+      </div>
     `;
   });
 
@@ -179,3 +190,4 @@ function limpiarHistorial() {
     location.reload();
   }
 }
+
